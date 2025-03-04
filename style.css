@@ -1,0 +1,297 @@
+/* CSS Variables */
+:root {
+    /* Theme Transition */
+    --transition-duration: 0.3s;
+    --transition-timing: ease-in-out;
+  
+    /* Light Theme */
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --sidebar-bg: #f5f5f5;
+    --btn-bg: #7851a9;
+    --btn-hover: #5d3c87;
+    --input-bg: #f0f0f0;
+    --border-color: #cccccc;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --success-color: #4CAF50;
+    --error-color: #f44336;
+  }
+  
+  /* Dark Theme */
+  .dark-mode {
+    --bg-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --sidebar-bg: #2d2d2d;
+    --btn-bg: #9b72cf;
+    --btn-hover: #7851a9;
+    --input-bg: #373737;
+    --border-color: #404040;
+    --shadow-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Base Styles */
+  * {
+    box-sizing: border-box;
+    transition: 
+      background-color var(--transition-duration) var(--transition-timing),
+      color var(--transition-duration) var(--transition-timing);
+  }
+  
+  body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+  }
+  
+  /* Layout */
+  .container {
+    display: flex;
+    min-height: 100vh;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  /* Sidebar */
+  #sidebar {
+    width: min(300px, 25vw);
+    background-color: var(--sidebar-bg);
+    padding: 1.5rem;
+    border-right: 1px solid var(--border-color);
+    overflow-y: auto;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+  }
+  
+  #sidebar h2 {
+    margin: 0 0 1.5rem;
+    font-size: 1.5rem;
+    color: var(--text-color);
+  }
+  
+  /* Notes List */
+  #notesList {
+    display: grid;
+    gap: 0.5rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  
+  #notesList li {
+    padding: 1rem;
+    background-color: var(--input-bg);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform var(--transition-duration) var(--transition-timing);
+  }
+  
+  #notesList li:hover {
+    transform: translateX(4px);
+    background-image: linear-gradient(
+      to right,
+      transparent,
+      var(--shadow-color)
+    );
+  }
+  
+  /* Main Content */
+  #main {
+    flex: 1;
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  /* Form Elements */
+  input,
+  textarea {
+    width: 100%;
+    padding: 0.8rem;
+    margin: 0.5rem 0 1.5rem;
+    background-color: var(--input-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    color: var(--text-color);
+    font-size: 1rem;
+  }
+  
+  textarea {
+    min-height: 150px;
+    resize: vertical;
+  }
+  
+  input:focus,
+  textarea:focus {
+    outline: 2px solid var(--btn-bg);
+    outline-offset: 2px;
+  }
+  
+  /* Buttons */
+  button {
+    padding: 0.8rem 1.5rem;
+    background-color: var(--btn-bg);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 
+      transform var(--transition-duration) var(--transition-timing),
+      background-color var(--transition-duration) var(--transition-timing);
+  }
+  
+  button:hover {
+    background-color: var(--btn-hover);
+    transform: scale(1.05);
+  }
+  
+  button:active {
+    transform: scale(0.95);
+  }
+  
+  /* Theme Toggle */
+  #themeToggle {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 100;
+    box-shadow: 0 2px 8px var(--shadow-color);
+  }
+  
+  /* Utility Classes */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+  
+  /* Message Styles */
+  #message {
+    position: fixed;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 500;
+    box-shadow: 0 2px 8px var(--shadow-color);
+  }
+  
+  #message.success {
+    background-color: var(--success-color);
+    color: white;
+  }
+  
+  #message.error {
+    background-color: var(--error-color);
+    color: white;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      padding: 0;
+    }
+  
+    #sidebar {
+      width: 100%;
+      height: auto;
+      position: static;
+      border-right: none;
+      border-bottom: 1px solid var(--border-color);
+    }
+  
+    #main {
+      padding: 1rem;
+    }
+  }
+  /* CSS Variables */
+:root {
+    /* Theme Transition */
+    --transition-duration: 0.3s;
+    --transition-timing: ease-in-out;
+  
+    /* Light Theme (Your Original Colors) */
+    --bg-color: #333;
+    --text-color: white;
+    --sidebar-bg: #222;
+    --btn-bg: #785;
+    --btn-hover: #a87;
+    --input-bg: #585859;
+    --border-color: #444;
+    --shadow-color: rgba(0, 0, 0, 0.2);
+    --success-color: #4CAF50;
+    --error-color: #f44336;
+  }
+  
+  /* Dark Theme (Your Original Colors) */
+  .dark-mode {
+    --bg-color: white;
+    --text-color: black;
+    --sidebar-bg: #ddd;
+    --btn-bg: #444;
+    --btn-hover: #666;
+    --input-bg: #ccc;
+    --border-color: #888;
+    --shadow-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Rest of the improved CSS remains the same */
+  * {
+    box-sizing: border-box;
+    transition: 
+      background-color var(--transition-duration) var(--transition-timing),
+      color var(--transition-duration) var(--transition-timing);
+  }
+  
+  body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+  }
+  
+  .container {
+    display: flex;
+    min-height: 100vh;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  #sidebar {
+    width: min(300px, 25vw);
+    background-color: var(--sidebar-bg);
+    padding: 1.5rem;
+    border-right: 1px solid var(--border-color);
+    overflow-y: auto;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+  }
+  
+  /* ... (rest of the previous improved CSS structure remains unchanged) ... */
+  
+  button:hover {
+    background-color: var(--btn-hover);
+    transform: scale(1.05);
+  }
+  
+  #themeToggle {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 100;
+    box-shadow: 0 2px 8px var(--shadow-color);
+  }
